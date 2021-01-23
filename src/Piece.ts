@@ -72,7 +72,6 @@ export default class Piece implements IPiece {
     this.next = next;
     this.prev = prev;
     // Enable for a neat effect
-    this.neat = neat;
     // this.el.innerHTML = "&#10096;";
     this.el.innerHTML = "&#10096;"
     this.setType(type);
@@ -102,7 +101,7 @@ export default class Piece implements IPiece {
     this.el.style.left = `${x}px`;
 
     // this.el.style.transform = `translate(${x}px, ${y}px)`;
-
+    this.el.style.transform = `translate(${x}px, ${y}px)`;
     // reset CSS classnames basically
     this.applyClass();
 
