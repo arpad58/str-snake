@@ -45,11 +45,11 @@ class Utils extends Debouncer {
      * @param el {Element} - egy DOM Element típus
      * @returns {void}
      */
-    /*
-     static removeNode(el: Element): void {
-        Debouncer.remove(this.el);
+    
+     static removeNode(el: Element) {
+        new Debouncer();
      }
-     */
+     
 }
 
 export default Utils;
