@@ -72,11 +72,14 @@ export default class Piece implements IPiece {
     this.next = next;
     this.prev = prev;
     // Enable for a neat effect
+    this.neat = neat;
     // this.el.innerHTML = "&#10096;";
+    this.el.innerHTML = "&#10096;"
     this.setType(type);
     this.setPos(this.x, this.y);
     this.garden = (document.getElementById('garden') as HTMLDivElement);
     // this.applyClass();
+    this.applyClass();
     this.garden.appendChild(this.el);
   }
 
