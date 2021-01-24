@@ -17,6 +17,36 @@ import BaseGame from './BaseGame';
  * metódusként vannak definiálva.
  */
 export default class Game extends BaseGame {
+  head: Piece;
+    
+    tail: Piece;
+
+    food: Piece | null;
+    
+    goldenApple: Piece | null;
+
+    length: number;
+
+    growth: number;
+
+    score: number;
+
+    currentLevel: Level | null;
+
+    garden: HTMLDivElement;
+
+    protected moving: boolean = false;
+
+    protected paused: boolean = false;
+
+    protected gridVisible: boolean = false;
+
+    protected debugSpeed: number = 0;
+
+    protected keyHeld: number = 0;
+
+    protected noClip: boolean = false;
+
 
   constructor (private levels: Level[]) {
     super();
