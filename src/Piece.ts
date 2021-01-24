@@ -90,6 +90,42 @@ export default class Piece implements IPiece {
     this.applyClass();
     this.garden.appendChild(this.el);
   }
+  /**
+   * Beállítja a típust.
+   * @param type {string} - a beállítandó típus
+   * 1. A this.type tulajdonságot beállítja a kapott type értékre.
+   * 2. Meghívja a this.applyClass metódust a változtatások érvényesítéséhez.
+   */
+  setType(type: string): void {
+    this.type = type;
+    this.applyClass();
+  }
+
+  /**
+   * Osztályokat állít be a this.el HTML elemre.
+   * 1. A this.el.className -et üres string -re állítja.
+   * 2. A this.el.classList.add metódussal hozzáad három új osztályt:
+   * 'cell', this.type, this.direction
+   */
+  applyClass(): void {
+    this.el.className = '';
+    this.el.classList.add('cell', this.type, this.direction);
+  }
+
+  /**
+   * Megállapítja, hogy ütközött-e a kígyó darabja valamivel.
+   * @param node {Piece}
+   * @returns {boolean}
+   * Ha a node null, akkor false értékkel tér vissza, 
+   * Ha nem, akkor akkor tér vissza true -val, ha a this.x egyenlő a node.x -el 
+   * és a this.y egyenlő a node.y -al.
+   */
+  isCollidingWith(node: Piece | null): boolean {
+    if (node === null) {
+      return (this.x === node.x && this.y === node.y) ? true 
+    }
+      return false; 
+  }
 
   bend(headDirection: string) {
     if (this.direction !== headDirection) {
