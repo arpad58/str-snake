@@ -25,6 +25,10 @@ export default class Level {
    * @returns {coord} - egy [x, y] koordinátával tér vissza
    */
 
+  translate(x: number, y: number) {
+    return Math.floor(x*SIZE), Math.floor(y*SIZE)
+  }
+
   remove (): void {
     this.pieces.forEach(piece => {
       piece.remove();
@@ -70,7 +74,7 @@ export default class Level {
      * @var {number} cols - this.garden.clientHeight és SIZE hányadosa, 
      * lefelé kerekítve 
      */
-
+    let cols:number = Math.floor(this.garden.clientHeight/SIZE);
     
     
     /** 
@@ -79,7 +83,7 @@ export default class Level {
      * lefelé kerekítve 
      */
 
-    
+    let rows:number = Math.floor(this.garden.clientWidth/SIZE);
     
     /** 
      * FELADAT!
@@ -87,7 +91,7 @@ export default class Level {
      * a rows és cols paraméterekkel
      */
 
-    
+    let level:LevelMap = this.generatorFunction(rows, cols);
 
     level.forEach(line => {
       const [x0, y0]: coord = line[0];
@@ -97,7 +101,8 @@ export default class Level {
        * Olvasd ki a fenti sorhoz hasonlóan az x1 és y1 koodrinátákat is, 
        * a line második eleméből!
        */
-
+      level.forEach(line => {
+        const [x1, y1]: coord = line[1];
       
 
       /**
@@ -106,8 +111,9 @@ export default class Level {
        * értékeket.
        */
 
-      
+      this.line(x0, y0, x1, y1)
 
-    });
+      })
+    })
   }
 }
